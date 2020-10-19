@@ -10,6 +10,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDescriptionComponent } from './components/product-description/product-description.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +20,10 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'product-description', component: ProductDescriptionComponent },
 ];
 
 @NgModule({
@@ -28,6 +35,9 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
+    CartComponent,
+    ProductListComponent,
+    ProductDescriptionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
