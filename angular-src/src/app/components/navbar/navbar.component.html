@@ -27,6 +27,7 @@
         >
       </li>
       <li
+        *ngIf="authService.loggedIn()"
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -36,6 +37,7 @@
         >
       </li>
       <li
+        *ngIf="authService.loggedIn()"
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -66,6 +68,7 @@
     <ul class="navbar-nav ml-auto mr-auto">
       <i class="fa fa-sign-in fa-lg"></i>
       <li
+        *ngIf="!authService.loggedIn()"
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -76,6 +79,7 @@
       </li>
 
       <li
+        *ngIf="!authService.loggedIn()"
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -84,25 +88,9 @@
           >Register<span class="sr-only">(current)</span></a
         >
       </li>
-      <li class="nav-item">
+      <li *ngIf="authService.loggedIn()" class="nav-item">
         <a class="nav-link" (click)="onLogoutClick()" href="#"
           >Logout<span class="sr-only">(current)</span></a
-        >
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<nav class="d-md-block col-md-3 d-none sidebar">
-  <div class="sidebar-sticky">
-    <ul class="nav flex-column bg-info">
-      <li
-        class="nav-item"
-        [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <a class="nav-link text-light" [routerLink]="['/product-list']"
-          >Product List<span class="sr-only">(current)</span></a
         >
       </li>
     </ul>
