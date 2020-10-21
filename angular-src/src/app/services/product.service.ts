@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs/Observable';
+import { Product } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class ProductService {
   authToken: any;
   user: any;
-  private _albumUrl = 'https://fakestoreapi.com/products';
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
   registerUser(user) {
     let headers = new HttpHeaders();

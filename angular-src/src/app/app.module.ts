@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -59,6 +59,7 @@ const appRoutes: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot(),
     HttpClientModule,
+    CommonModule,
   ],
   providers: [
     ValidateService,

@@ -1,1 +1,5 @@
-<h2>Home Works</h2>
+<div class="row" *ngFor="let product of products">
+  <div class="col-md-4">
+    <img class="card-img-top" src="{{ product.image }}" alt="Card image cap" />
+  </div>
+</div>
