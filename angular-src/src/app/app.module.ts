@@ -21,6 +21,7 @@ import { ValidateService } from './services/validate.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { ProductService } from './services/product.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
   providers: [
     ValidateService,
     AuthGuard,
+    ProductService,
     AuthService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
