@@ -1,5 +1,8 @@
 export interface Product {
   id: number;
-  artistName: string;
-  albumName: string;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  peice: number;
 }
