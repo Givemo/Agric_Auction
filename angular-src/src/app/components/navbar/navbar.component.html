@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-default">
+  <a class="navbar-brand" href="#"
+    ><span class="h2 mr-4"><span class="text-warning">A</span>A</span
+    ><span class="text-warning">Agric</span> Auction</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav ml-auto mr-auto">
+      <li
+        class="nav-item"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" [routerLink]="['/home']"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li
+        class="nav-item"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" [routerLink]="['/cart']"
+          >Cart <i class="fas fa-shopping-cart"></i
+        ></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </form>
+    <ul class="navbar-nav ml-auto mr-auto">
+      <i class="fa fa-sign-in fa-lg"></i>
+      <li
+        class="nav-item"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" [routerLink]="['/login']"
+          >Login<span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li
+        class="nav-item"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" [routerLink]="['/register']"
+          >Register<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="d-md-block col-md-3 d-none sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column bg-info">
+      <li
+        class="nav-item"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link text-light" [routerLink]="['/product-list']"
+          >Product List<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

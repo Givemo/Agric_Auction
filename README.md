@@ -1,3 +1,4 @@
 # Agric_Auction
 
-# This is a community project creating an e-commerce website for Agriculture products
+# This is an agriculture produce ecommerce community project created as part of the Andela community projects.
+
