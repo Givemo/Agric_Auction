@@ -27,6 +27,7 @@
         >
       </li>
       <li
+        *ngIf="authService.loggedIn()"
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"

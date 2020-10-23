@@ -35,7 +35,11 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'product-list', component: ProductListComponent },
+  {
+    path: 'product-list',
+    component: ProductListComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'product-description', component: ProductDescriptionComponent },
 ];
 
