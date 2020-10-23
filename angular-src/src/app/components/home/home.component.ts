@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
     return this.http.get('https://fakestoreapi.com/products?limit=5').subscribe(
       (data: any) => {
         this.products = data;
-        console.log(this.products);
       },
       (err) => {
         console.log(err);
