@@ -6,12 +6,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class ProductService {
   authToken: any;
   user: any;
-
+  private _albumUrl = 'https://fakestoreapi.com/products';
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
-
   registerUser(user) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
