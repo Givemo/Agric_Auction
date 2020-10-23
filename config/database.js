@@ -1,4 +1,5 @@
 module.exports = {
-  database: "mongodb://localhost:27017/meanauth",
+  database:
+    "mongodb+srv://Givemore:Hararenorton-04@agricauctioncluster.mb91e.mongodb.net/agricAuctionCluster?retryWrites=true&w=majority",
   secret: "yoursecret",
 };
