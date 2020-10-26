@@ -1220,7 +1220,7 @@ class AuthService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('http://localohost:3000/users/register', user, {
+            .post('users/register', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -1229,7 +1229,7 @@ class AuthService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('http://localohost:3000/users/authenticate', user, {
+            .post('users/authenticate', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -1242,9 +1242,7 @@ class AuthService {
                 Authorization: this.authToken,
             }),
         };
-        return this.http
-            .get('http://localohost:3000/users/profile', httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
+        return this.http.get('users/profile', httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
     }
     storeUserData(token, user) {
         localStorage.setItem('id_token', token);
