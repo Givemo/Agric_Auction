@@ -15,16 +15,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav ml-auto mr-auto">
       <li
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/home']"
-          >Home<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
       <li
         *ngIf="authService.loggedIn()"
@@ -32,9 +30,7 @@
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/product-list']"
-          >Product List<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" [routerLink]="['/product-list']">Product List</a>
       </li>
       <li
         *ngIf="authService.loggedIn()"
@@ -42,9 +38,7 @@
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/dashboard']"
-          >Dashboard<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
       </li>
       <li
         *ngIf="authService.loggedIn()"
@@ -52,11 +46,10 @@
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/profile']"
-          >Profile<span class="sr-only">(current)</span></a
-        >
+        <a class="nav-link" [routerLink]="['/profile']">Profile</a>
       </li>
       <li
+        *ngIf="authService.loggedIn()"
         class="nav-item"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -73,7 +66,6 @@
         placeholder="Search"
         aria-label="Search"
       />
-      <i class="fas fa-search fa-primary"></i>
     </form>
     <ul class="navbar-nav ml-auto mr-auto">
       <i class="fa fa-sign-in fa-lg"></i>
