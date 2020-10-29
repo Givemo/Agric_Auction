@@ -4,6 +4,9 @@ const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const config = require("../config/database");
 const User = require("../models/user");
+const Product = require("../models/product");
+
+
 
 // Register
 router.post("/register", (req, res, next) => {
