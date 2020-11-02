@@ -17,16 +17,14 @@ export class ProductService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http
-      .get('http://localhost:3000/api/products', httpOptions)
-      .pipe(map((res) => res));
+    return this.http.get('api/products', httpOptions).pipe(map((res) => res));
   }
 
   authenticateUser(user) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .post('http://localhost:3000/users/authenticate', user, {
+      .post('users/authenticate', user, {
         headers: headers,
       })
       .pipe(map((res) => res));
