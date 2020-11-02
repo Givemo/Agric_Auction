@@ -1,13 +1,13 @@
 <div class="wrapper">
   <header class="header">Header Image</header>
-  <div class="product-article" *ngFor="let product of products">
+  <div class="product-article" *ngFor="let product of allProducts">
     <img
       src="{{ product.image }}"
       class="card-img-top"
       data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
       alt="Card image cap"
     />
-    <div class="panel">{{ product.title }}</div>
+    <div class="panel">{{ product.name }}</div>
     <div class="product-price">$ {{ product.price }}</div>
   </div>
   <footer class="footer">My footer</footer>

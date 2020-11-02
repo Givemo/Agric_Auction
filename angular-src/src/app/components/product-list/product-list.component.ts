@@ -9,14 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[];
-  user: Object;
+  allProducts: [];
   constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit(): void {
-    this.productService.getProfile().subscribe(
-      (profile: any) => {
-        this.products = profile.user.products;
+    this.productService.displayProducts().subscribe(
+      (product: any) => {
+        this.allProducts = product.products;
       },
       (err) => {
         console.log(err);

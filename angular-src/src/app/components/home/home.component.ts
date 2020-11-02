@@ -11,7 +11,7 @@ import { Product } from '../../interfaces/product';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  products: Product[];
+  allProducts: [];
   constructor(
     private productService: ProductService,
     private http: HttpClient,
@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    return this.http.get('https://fakestoreapi.com/products?limit=5').subscribe(
-      (data: any) => {
-        this.products = data;
+    this.productService.displayProducts().subscribe(
+      (product: any) => {
+        this.allProducts = product.products;
       },
       (err) => {
         console.log(err);

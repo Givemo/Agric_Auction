@@ -22,6 +22,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductService } from './services/product.service';
+import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,6 +43,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'product-description', component: ProductDescriptionComponent },
+  {
+    path: 'add-product-modal',
+    component: AddProductModalComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -55,6 +62,7 @@ const appRoutes: Routes = [
     CartComponent,
     ProductListComponent,
     ProductDescriptionComponent,
+    AddProductModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +72,7 @@ const appRoutes: Routes = [
     FlashMessagesModule.forRoot(),
     HttpClientModule,
     CommonModule,
+    NgbModule,
   ],
   providers: [
     ValidateService,

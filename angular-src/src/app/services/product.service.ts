@@ -9,16 +9,16 @@ import { Product } from '../interfaces/product';
   providedIn: 'root',
 })
 export class ProductService {
-  authToken: any;
-  user: any;
+  products: any;
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
-  registerUser(user) {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
+  displayProducts() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
     return this.http
-      .post('http://localhost:3000/users/register', user, {
-        headers: headers,
-      })
+      .get('http://localhost:3000/api/products', httpOptions)
       .pipe(map((res) => res));
   }
 
@@ -30,41 +30,5 @@ export class ProductService {
         headers: headers,
       })
       .pipe(map((res) => res));
-  }
-
-  getProfile() {
-    this.loadToken();
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: this.authToken,
-      }),
-    };
-    return this.http
-      .get('http://localhost:3000/users/profile', httpOptions)
-      .pipe(map((res) => res));
-  }
-
-  storeUserData(token, user) {
-    localStorage.setItem('id_token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-    this.authToken = token;
-    this.user = user;
-  }
-
-  loadToken() {
-    const token = localStorage.getItem('id_token');
-    this.authToken = token;
-  }
-
-  loggedIn() {
-    const token = localStorage.getItem('id_token');
-    return !this.jwtHelper.isTokenExpired(token);
-  }
-
-  logout() {
-    this.authToken = null;
-    this.user = null;
-    localStorage.clear();
   }
 }

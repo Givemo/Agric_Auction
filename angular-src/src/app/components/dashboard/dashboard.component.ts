@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  pageTitle = 'Welcome to your dashboard';
+  allProducts: [];
+  constructor(private productService: ProductService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productService.displayProducts().subscribe(
+      (product: any) => {
+        this.allProducts = product.products;
+      },
+      (err) => {
+        console.log(err);
+        return false;
+      }
+    );
+  }
 }
