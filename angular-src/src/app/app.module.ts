@@ -73,6 +73,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     CommonModule,
     NgbModule,
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }),
   ],
   providers: [
     ValidateService,

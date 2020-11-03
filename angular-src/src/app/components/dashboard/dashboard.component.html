@@ -45,7 +45,12 @@
               {{ product._id | lowercase }}
             </td>
             <td>
-              <button class="btn btn-danger">X</button>
+              <button
+                (click)="removeProduct(product._id)"
+                class="btn btn-danger"
+              >
+                X
+              </button>
             </td>
           </tr>
         </tbody>

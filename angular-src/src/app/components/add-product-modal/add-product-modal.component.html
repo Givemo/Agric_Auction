@@ -11,106 +11,110 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <flash-messages></flash-messages>
+    <form (submit)="onProductSubmit()">
       <div class="form-row">
         <div class="card-body">
           <dl class="row">
             <dt class="col col-sm-6 col-md-2 mb-4">Name</dt>
             <dd class="col-9">
-              <form action="">
-                <div class="form-group row">
-                  <div class="col col-sm-12 clo-md-8">
-                    <input
-                      placeholder="Name"
-                      class="form-control"
-                      type="text"
-                      onblur="(this.type='text')"
-                      id="name"
-                      name="name"
-                    />
-                  </div>
+              <div class="form-group row">
+                <div class="col col-sm-12 clo-md-8">
+                  <input
+                    placeholder="Name"
+                    class="form-control"
+                    type="text"
+                    onblur="(this.type='text')"
+                    id="name"
+                    name="name"
+                    [(ngModel)]="name"
+                  />
                 </div>
-              </form>
+              </div>
             </dd>
             <dt class="col col-sm-6 col-md-2 mb-4">Price</dt>
             <dd class="col-9">
-              <form action="">
-                <div class="form-group row">
-                  <div class="col col-sm-12 clo-md-8">
-                    <input
-                      placeholder="Price"
-                      class="form-control"
-                      type="text"
-                      onblur="(this.type='text')"
-                      id="price"
-                      name="price"
-                    />
-                  </div>
+              <div class="form-group row">
+                <div class="col col-sm-12 clo-md-8">
+                  <input
+                    placeholder="Price"
+                    class="form-control"
+                    type="text"
+                    onblur="(this.type='text')"
+                    id="price"
+                    name="price"
+                    [(ngModel)]="price"
+                  />
                 </div>
-              </form>
+              </div>
             </dd>
             <dt class="col col-sm-6 col-md-2 mb-4">Quantity</dt>
             <dd class="col-9">
-              <form action="">
-                <div class="form-group row">
-                  <div class="col col-sm-12 clo-md-8">
-                    <input
-                      placeholder="Quantity"
-                      class="form-control"
-                      type="number"
-                      onblur="(this.type='text')"
-                      id="quantity"
-                      name="quantity"
-                    />
-                  </div>
+              <div class="form-group row">
+                <div class="col col-sm-12 clo-md-8">
+                  <input
+                    placeholder="Quantity"
+                    class="form-control"
+                    type="number"
+                    onblur="(this.type='text')"
+                    id="quantity"
+                    name="quantity"
+                    [(ngModel)]="quantity"
+                  />
                 </div>
-              </form>
+              </div>
             </dd>
             <dt class="col col-sm-6 col-md-2 mb-4">Category</dt>
             <dd class="col-9">
-              <form action="">
-                <div class="form-group row">
-                  <div class="col col-sm-12 clo-md-8">
-                    <input
-                      placeholder="Category"
-                      class="form-control"
-                      type="text"
-                      onblur="(this.type='text')"
-                      id="category"
-                      name="category"
-                    />
-                  </div>
+              <div class="form-group row">
+                <div class="col col-sm-12 clo-md-8">
+                  <input
+                    placeholder="Category"
+                    class="form-control"
+                    type="text"
+                    onblur="(this.type='text')"
+                    id="category"
+                    name="category"
+                    [(ngModel)]="category"
+                  />
                 </div>
-              </form>
+              </div>
+            </dd>
+            <dt class="col col-sm-6 col-md-2 mb-4">Image Link</dt>
+            <dd class="col-9">
+              <div class="form-group row">
+                <div class="col col-sm-12 clo-md-8">
+                  <input
+                    placeholder="Paste image link"
+                    class="form-control"
+                    type="text"
+                    onblur="(this.type='text')"
+                    id="image"
+                    name="image"
+                    [(ngModel)]="image"
+                  />
+                </div>
+              </div>
             </dd>
             <dt class="col col-sm-6 col-md-2 mb-4">Description</dt>
             <dd class="col-9">
-              <form action="">
-                <div class="form-group row">
-                  <div class="col col-sm-12 clo-md-8">
-                    <textarea
-                      id="name"
-                      name="name"
-                      class="form-control"
-                      rows="3"
-                    ></textarea>
-                  </div>
+              <div class="form-group row">
+                <div class="col col-sm-12 clo-md-8">
+                  <textarea
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    rows="3"
+                    [(ngModel)]="description"
+                  ></textarea>
                 </div>
-              </form>
+              </div>
             </dd>
+            <input type="submit" class="btn btn-info" />
           </dl>
         </div>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
-      Save
-    </button>
   </div>
 </ng-template>
 

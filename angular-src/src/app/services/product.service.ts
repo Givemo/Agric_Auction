@@ -11,6 +11,7 @@ import { Product } from '../interfaces/product';
 export class ProductService {
   products: any;
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
+
   displayProducts() {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -18,6 +19,22 @@ export class ProductService {
       }),
     };
     return this.http.get('api/products', httpOptions).pipe(map((res) => res));
+  }
+
+  addProduct(product) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http
+      .post('api/products', product, {
+        headers: headers,
+      })
+      .pipe(map((res) => res));
+  }
+
+  delProduct(id) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.delete('api/products/' + id);
   }
 
   authenticateUser(user) {
