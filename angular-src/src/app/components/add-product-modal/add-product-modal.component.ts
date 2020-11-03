@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
@@ -12,6 +18,7 @@ import { ValidateService } from '../../services/validate.service';
 })
 export class AddProductModalComponent implements OnInit {
   closeResult = '';
+  allProducts: any;
   name: String;
   price: Number;
   quantity: Number;
@@ -79,7 +86,7 @@ export class AddProductModalComponent implements OnInit {
           timeout: 3000,
         });
         this.dismissModal();
-        this.router.navigate(['/dashbooard']);
+        this.router.navigate(['/dashboard']);
       } else {
         this.flashMessage.show('Something went wrong', {
           cssClass: 'bg-danger text-light',
@@ -87,12 +94,25 @@ export class AddProductModalComponent implements OnInit {
         });
         this.router.navigate(['/dashboard']);
       }
-      this.ngOnInit();
+      this.fetchData();
     });
   }
+
   dismissModal() {
     setTimeout(() => {
       this.modalService.dismissAll();
     }, 2000);
+  }
+
+  fetchData() {
+    this.productService.displayProducts().subscribe(
+      (product: any) => {
+        this.allProducts = product.products;
+      },
+      (err) => {
+        console.log(err);
+        return false;
+      }
+    );
   }
 }

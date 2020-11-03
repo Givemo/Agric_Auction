@@ -1,5 +1,7 @@
-<div class="wrapper">
-  <header class="header">Header Image</header>
+<nav class="nav">
+  <h1>Welcome to Agric Auction, a place for fresh produce</h1>
+</nav>
+<div class="wrapper mt-4">
   <div class="product-article" *ngFor="let product of allProducts">
     <img
       src="{{ product.image }}"
@@ -9,6 +11,6 @@
     />
     <div class="panel">{{ product.name }}</div>
     <div class="product-price">$ {{ product.price }}</div>
+    <button class="btn btn-success">Add to cart</button>
   </div>
-  <footer class="footer">My footer</footer>
 </div>

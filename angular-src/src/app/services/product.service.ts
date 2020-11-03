@@ -34,7 +34,11 @@ export class ProductService {
   delProduct(id) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.delete('api/products/' + id);
+    return this.http
+      .delete('api/products/' + id, {
+        headers: headers,
+      })
+      .pipe(map((res) => res));
   }
 
   authenticateUser(user) {

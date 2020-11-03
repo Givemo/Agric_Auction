@@ -11,6 +11,29 @@ body {
   color: #444;
 }
 
+.nav {
+  color: #ddd;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  max-width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: 
+    /* top, transparent red, faked with gradient */ linear-gradient(
+      rgba(136, 250, 6, 0.45),
+      rgba(4, 104, 4, 0.9)
+    ),
+    /* bottom, image */
+      url(https://cdn.pixabay.com/photo/2018/03/09/17/44/paprika-3212148_960_720.jpg),
+    no-repeat center center fixed;
+  background-size: 100%;
+}
+
 h1,
 p {
   margin: 0 0 1em 0;
