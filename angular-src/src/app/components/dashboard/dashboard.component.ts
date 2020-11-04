@@ -32,8 +32,10 @@ export class DashboardComponent implements OnInit {
   removeProduct(id) {
     this.productService.delProduct(id).subscribe(
       (product: any) => {
+        console.log(this.allProducts);
         this.allProducts = this.allProducts.filter((item) => item.id !== id);
         this.allProducts = product.products;
+
         this.fetchData();
         this.flashMessage.show('Product removed', {
           cssClass: 'bg-success text-light',

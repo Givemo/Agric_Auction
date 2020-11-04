@@ -1,3 +1,35 @@
-<div class="contaner bg-light">
-  <h2>Your Cart is Empty</h2>
+<div class="wrapper mt-4 cart">
+  <h4 class="d-flex justify-content-between align-items-center mb-3">
+    <span class="text-muted">Your cart</span>
+    <span class="badge badge-secondary badge-pill mr-4">3</span>
+  </h4>
+  <div class="table-responsive">
+    <table class="table" *ngIf="productsInCart && productsInCart.length">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productsInCart">
+          <td>
+            <a>
+              {{ product.name }}
+            </a>
+          </td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.price | currency: "USD":"symbol":"1.2-2" }}</td>
+
+          <td>
+            <button (click)="removeProduct(product._id)" class="btn btn-danger">
+              {{ product._id }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

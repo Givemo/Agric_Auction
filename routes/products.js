@@ -55,7 +55,6 @@ const updateProduct = (req, res) => {
   //Get the id, since we need to update a specific product.
   //Destruct the id from the request params.
   const { id } = req.params;
-  console.log(id);
   //Destruct the update data from the req.body;
   const { name, description, price, quantity, category, image } = req.body;
   //Find the product, and update it's properties

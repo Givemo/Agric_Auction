@@ -11,6 +11,8 @@
     />
     <div class="panel">{{ product.name }}</div>
     <div class="product-price">$ {{ product.price }}</div>
-    <button class="btn btn-success">Add to cart</button>
+    <button class="btn btn-success" (click)="addToCart(product)">
+      Add to cart
+    </button>
   </div>
 </div>

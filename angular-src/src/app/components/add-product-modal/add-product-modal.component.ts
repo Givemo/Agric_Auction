@@ -94,7 +94,6 @@ export class AddProductModalComponent implements OnInit {
         });
         this.router.navigate(['/dashboard']);
       }
-      this.fetchData();
     });
   }
 

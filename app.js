@@ -22,6 +22,7 @@ const app = express();
 const users = require("./routes/users");
 const products = require("./routes/products");
 const item = require("./routes/item.route");
+const cart = require("./routes/cart.route");
 
 // Port Number
 const port = process.env.PORT || 8080;
@@ -45,6 +46,7 @@ require("./config/passport")(passport);
 app.use("/users", users);
 app.use("/api/products", products);
 app.use("/api/item", item);
+app.use("/api/cart", cart);
 
 // Index Route
 app.get("/", (req, res) => {
