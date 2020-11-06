@@ -30,14 +30,6 @@
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['/product-list']">Product List</a>
-      </li>
-      <li
-        *ngIf="authService.loggedIn()"
-        class="nav-item"
-        [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
         <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
       </li>
       <li

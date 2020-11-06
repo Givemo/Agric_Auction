@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.countCartItems();
     this.cartService.displayCartProducts().subscribe(
       (product: any) => {
         this.productsInCart = product.products;
@@ -32,13 +33,12 @@ export class CartComponent implements OnInit {
   removeProduct(id) {
     this.cartService.delProduct(id).subscribe(
       (product: any) => {
-        console.log(this.productsInCart);
         this.productsInCart = this.productsInCart.filter(
           (item) => item.id !== id
         );
         this.productsInCart = product.products;
-
         this.fetchData();
+
         this.flashMessage.show('Product removed', {
           cssClass: 'bg-success text-light',
           timeout: 3000,
@@ -59,6 +59,18 @@ export class CartComponent implements OnInit {
     this.cartService.displayCartProducts().subscribe(
       (product: any) => {
         this.productsInCart = product.products;
+      },
+      (err) => {
+        console.log(err);
+        return false;
+      }
+    );
+  }
+  countCartItems() {
+    this.cartService.displayCartProducts().subscribe(
+      (product: any) => {
+        this.productsInCart = product.products;
+        return this.productsInCart.length;
       },
       (err) => {
         console.log(err);

@@ -1,4 +1,6 @@
 .flash-card {
   position: fixed;
   width: 100%;
+  top: 4rem;
+  z-index: 10;
 }

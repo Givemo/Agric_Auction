@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   {
     path: 'product-list',
     component: ProductListComponent,

@@ -16,14 +16,14 @@ export class CartService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.get('/api/cart', httpOptions).pipe(map((res) => res));
+    return this.http.get('api/cart', httpOptions).pipe(map((res) => res));
   }
 
   addToCartProducts(product) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .post('/api/cart', product, {
+      .post('api/cart', product, {
         headers: headers,
       })
       .pipe(map((res) => res));
@@ -33,7 +33,7 @@ export class CartService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .delete('/api/cart/' + id, {
+      .delete('api/cart/' + id, {
         headers: headers,
       })
       .pipe(map((res) => res));

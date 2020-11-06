@@ -4,36 +4,21 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-md-2">Filter by:</div>
-      <div class="col-md-4">
-        <input type="text" />
-      </div>
       <app-add-product-modal></app-add-product-modal>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h4>Filtered by:</h4>
-      </div>
     </div>
     <div class="table-responsive">
       <table class="table" *ngIf="allProducts && allProducts.length">
         <thead>
           <tr>
-            <th>
-              <button class="btn btn-primary"></button>
-            </th>
             <th>Product</th>
             <th>Available</th>
             <th>Price</th>
-            <th>Product Id</th>
+
             <th>Remove</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let product of allProducts">
-            <td>
-              <img src=" {{ product.image }} " />
-            </td>
             <td>
               <a>
                 {{ product.name }}
@@ -41,9 +26,7 @@
             </td>
             <td>{{ product.quantity }}</td>
             <td>{{ product.price | currency: "USD":"symbol":"1.2-2" }}</td>
-            <td>
-              {{ product._id | lowercase }}
-            </td>
+
             <td>
               <button
                 (click)="removeProduct(product._id)"

@@ -11,7 +11,6 @@ const mongoose = require("mongoose");
 const addProductToCart = async (req, res) => {
   const { productId, quantity, name, price } = req.body;
   const userId = "5de7ffa74fff640a0491bc4f"; //TODO: the logged in user id
-  console.log(userId);
   try {
     let cart = await Cart.findOne({ userId });
     if (cart) {

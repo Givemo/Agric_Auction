@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit {
       quantity: product.quantity,
       productId: product._id,
     };
-    console.log(newProduct);
     // Add Product
     this.cartService.addToCartProducts(newProduct).subscribe((data: any) => {
       if (data) {
@@ -56,13 +55,11 @@ export class HomeComponent implements OnInit {
           cssClass: 'bg-success text-light',
           timeout: 3000,
         });
-        this.router.navigate(['/home']);
       } else {
         this.flashMessage.show('Something went wrong', {
           cssClass: 'bg-danger text-light',
           timeout: 2000,
         });
-        this.router.navigate(['/home']);
       }
     });
   }

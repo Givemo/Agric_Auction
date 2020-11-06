@@ -85,8 +85,8 @@ export class AddProductModalComponent implements OnInit {
           cssClass: 'bg-success text-light',
           timeout: 3000,
         });
-        this.dismissModal();
         this.router.navigate(['/dashboard']);
+        this.dismissModal();
       } else {
         this.flashMessage.show('Something went wrong', {
           cssClass: 'bg-danger text-light',
@@ -101,17 +101,5 @@ export class AddProductModalComponent implements OnInit {
     setTimeout(() => {
       this.modalService.dismissAll();
     }, 2000);
-  }
-
-  fetchData() {
-    this.productService.displayProducts().subscribe(
-      (product: any) => {
-        this.allProducts = product.products;
-      },
-      (err) => {
-        console.log(err);
-        return false;
-      }
-    );
   }
 }
