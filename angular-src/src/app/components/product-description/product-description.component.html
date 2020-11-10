@@ -1,6 +1,6 @@
 <div class="card product-description" *ngIf="product">
   <div class="card-header">
-    {{ pageTitle + ": " + product.name }}
+    {{ pageTitle }}
   </div>
 
   <div class="card-body">
@@ -21,7 +21,7 @@
           <div class="col-md-8">{{ product.description }}</div>
         </div>
         <div class="row">
-          <div class="col-md-4">Availability:</div>
+          <div class="col-md-4">Quantity available:</div>
           <div class="col-md-8">{{ product.quantity }}</div>
         </div>
         <div class="row">

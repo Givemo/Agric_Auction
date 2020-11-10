@@ -29,11 +29,7 @@
         <tbody>
           <tr *ngFor="let product of allProducts">
             <td>
-              <a
-                class="nav-link h5"
-                [routerLink]="['/dashboard', product._id]"
-                (click)="onClick(product.id)"
-              >
+              <a class="nav-link h5" [routerLink]="['/dashboard', product._id]">
                 {{ product.name }}
               </a>
             </td>

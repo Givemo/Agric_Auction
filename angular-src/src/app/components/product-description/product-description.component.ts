@@ -22,34 +22,16 @@ export class ProductDescriptionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.pageTitle += `${id}`;
-    this.productService.displayProductsById(id).subscribe(
-      (product: any) => {
-        this.allProducts = product.products;
-      },
-      (err) => {
-        console.log(err);
-        return false;
-      }
-    );
-    /*this.product = {
-      name: 'Amazing Product',
-      description: 'Fresh High Quality Crops',
-      category: 'Crops',
-      quantity: 50,
-      image:
-        'https://www.cookforyourlife.org/wp-content/uploads/2018/08/Fresh-Grape-Juice.jpg',
-      price: 16.99,
-      id: id,
-    };*/
+    let param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = param;
+      this.getProduct(id);
+    }
   }
-  onClick(id) {
-    id = this.route.snapshot.paramMap.get('id');
-    this.pageTitle += `${id}`;
+  getProduct(id): void {
     this.productService.displayProductsById(id).subscribe(
       (product: any) => {
-        this.allProducts = product.products;
+        this.product = product.product;
       },
       (err) => {
         console.log(err);
@@ -57,6 +39,7 @@ export class ProductDescriptionComponent implements OnInit {
       }
     );
   }
+
   onBack(): void {
     this.router.navigate(['/home'], { fragment: 'products' });
   }

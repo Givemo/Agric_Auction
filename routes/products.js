@@ -84,6 +84,18 @@ const deleteProduct = (req, res) => {
   });
 };
 
+// Display product by string
+const readProductByString = (req, res) => {
+  // Copy and paste one of the product's id to the url when testing it.
+  // Use the findById to get a specific product.
+  Product.find({ Al: { $regex: req.query.Al, $options: "a" } }).toArray(
+    (err, product) => {
+      if (err) console.log("Dispaly Single Product Error---------------", err);
+      res.status(200).json({ product });
+    }
+  );
+};
+
 // /api/products
 router.route("/").get(displayProducts).post(createProduct);
 
@@ -94,4 +106,6 @@ router
   .put(updateProduct)
   .delete(deleteProduct);
 
+// /api/products/:string
+router.route("/:string").get(readProductById);
 module.exports = router;
