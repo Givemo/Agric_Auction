@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,28 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class DashboardComponent implements OnInit {
   pageTitle = 'Welcome to your dashboard';
-  allProducts: any;
+
+  _listFilter = '';
+  filteredProducts: Product[] = [];
+  allProducts: Product[] = [];
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.listFilter
+      ? this.performFilter(this.listFilter)
+      : this.allProducts;
+  }
+
+  performFilter(filterBy: string): Product[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.allProducts.filter(
+      (product: Product) =>
+        product.name.toLocaleLowerCase().indexOf(filterBy) !== -1
+    );
+  }
+
   constructor(
     private productService: ProductService,
     private router: Router,
@@ -21,6 +43,7 @@ export class DashboardComponent implements OnInit {
     this.productService.displayProducts().subscribe(
       (product: any) => {
         this.allProducts = product.products;
+        this.filteredProducts = this.allProducts;
       },
       (err) => {
         console.log(err);
@@ -28,6 +51,17 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+  /* this.productService.displayProducts().subscribe(
+      (product: any) => {
+        this.allProducts = product.products;
+        this.filteredProducts = this.allProducts;
+      },
+      (err) => {
+        console.log(err);
+        return false;
+      }
+    ); */
 
   removeProduct(id) {
     this.productService.delProduct(id).subscribe(

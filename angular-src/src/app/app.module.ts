@@ -29,6 +29,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard/:id', component: ProductDescriptionComponent },
+  { path: 'home/:id', component: ProductDescriptionComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -42,7 +44,7 @@ const appRoutes: Routes = [
     component: ProductListComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'product-description', component: ProductDescriptionComponent },
+
   {
     path: 'add-product-modal',
     component: AddProductModalComponent,

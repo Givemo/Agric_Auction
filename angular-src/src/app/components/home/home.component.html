@@ -2,14 +2,22 @@
   <h1>Welcome to Agric Auction</h1>
 </nav>
 <div class="wrapper mt-4 px-4">
-  <div class="product-article" *ngFor="let product of allProducts">
-    <img
-      src="{{ product.image }}"
-      class="card-img-top"
-      data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-      alt="Card image cap"
-    />
-    <div class="panel">{{ product.name }}</div>
+  <div
+    class="product-article"
+    id="products"
+    fragment="products"
+    *ngFor="let product of allProducts"
+  >
+    <a [routerLink]="['/dashboard', product._id]"
+      ><img
+        src="{{ product.image }}"
+        class="card-img-top"
+        data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
+        alt="Card image cap"
+    /></a>
+    <a [routerLink]="['/dashboard', product._id]"
+      ><div class="panel">{{ product.name }}</div></a
+    >
     <div class="product-price">$ {{ product.price }}</div>
     <button
       class="btn btn-success btn-inline ml-5"

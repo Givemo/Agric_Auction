@@ -4,7 +4,16 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <app-add-product-modal></app-add-product-modal>
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4">
+        <input type="text" [(ngModel)]="listFilter" />
+      </div>
+      <app-add-product-modal class="col-md-2 my-1"></app-add-product-modal>
+    </div>
+    <div class="row" *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered by: {{ listFilter }}</h4>
+      </div>
     </div>
     <div class="table-responsive">
       <table class="table" *ngIf="allProducts && allProducts.length">
@@ -20,7 +29,11 @@
         <tbody>
           <tr *ngFor="let product of allProducts">
             <td>
-              <a>
+              <a
+                class="nav-link h5"
+                [routerLink]="['/dashboard', product._id]"
+                (click)="onClick(product.id)"
+              >
                 {{ product.name }}
               </a>
             </td>
