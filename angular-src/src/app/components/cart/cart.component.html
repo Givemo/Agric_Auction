@@ -1,7 +1,11 @@
-<div class="wrapper mt-4 cart">
-  <h4 class="d-flex justify-content-between align-items-center mb-3">
+<div class="wrapper mt-4 cart card">
+  <h4
+    class="d-flex justify-content-between align-items-center mb-3 bg-warning card-header"
+  >
     <span class="text-muted">Your cart</span>
-    <span class="badge badge-secondary badge-pill mr-4"> </span>
+    <span class="badge badge-secondary badge-pill mr-4">
+      {{ numberInCart }}
+    </span>
   </h4>
   <div class="table-responsive">
     <table class="table" *ngIf="productsInCart && productsInCart.length">

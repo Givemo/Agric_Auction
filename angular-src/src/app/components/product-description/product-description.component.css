@@ -2,3 +2,8 @@
   top: 8rem;
   position: relative;
 }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}

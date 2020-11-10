@@ -18,14 +18,16 @@ export class ProductService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.get('api/products', httpOptions).pipe(map((res) => res));
+    return this.http
+      .get('http://localhost:3000/api/products', httpOptions)
+      .pipe(map((res) => res));
   }
 
   displayProductsById(id) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .get('api/products/' + id, {
+      .get('http://localhost:3000/api/products/' + id, {
         headers: headers,
       })
       .pipe(map((res) => res));
@@ -35,7 +37,7 @@ export class ProductService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .post('api/products', product, {
+      .post('http://localhost:3000/api/products', product, {
         headers: headers,
       })
       .pipe(map((res) => res));
@@ -45,7 +47,17 @@ export class ProductService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .delete('api/products/' + id, {
+      .delete('http://localhost:3000/api/products/' + id, {
+        headers: headers,
+      })
+      .pipe(map((res) => res));
+  }
+
+  updateProduct(id) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http
+      .put('http://localhost:3000/api/products/' + id, {
         headers: headers,
       })
       .pipe(map((res) => res));
@@ -55,7 +67,7 @@ export class ProductService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http
-      .post('users/authenticate', user, {
+      .post('http://localhost:3000/users/authenticate', user, {
         headers: headers,
       })
       .pipe(map((res) => res));

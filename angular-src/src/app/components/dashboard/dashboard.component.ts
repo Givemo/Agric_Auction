@@ -52,21 +52,9 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  /* this.productService.displayProducts().subscribe(
-      (product: any) => {
-        this.allProducts = product.products;
-        this.filteredProducts = this.allProducts;
-      },
-      (err) => {
-        console.log(err);
-        return false;
-      }
-    ); */
-
   removeProduct(id) {
     this.productService.delProduct(id).subscribe(
       (product: any) => {
-        console.log(this.allProducts);
         this.allProducts = this.allProducts.filter((item) => item.id !== id);
         this.allProducts = product.products;
 

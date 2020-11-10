@@ -1,5 +1,8 @@
-<div class="profile" *ngIf="user">
-  <h2 class="page-header">{{ user.name }}</h2>
+<div class="card profile" *ngIf="user">
+  <div class="card-header bg-warning">
+    {{ pageTitle }}
+  </div>
+  <h3 class="font-weight-light">{{ user.name }}</h3>
   <ul class="list-group">
     <li class="list-group-item">Username: {{ user.username }}</li>
     <li class="list-group-item">Email: {{ user.email }}</li>

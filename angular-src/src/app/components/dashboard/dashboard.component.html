@@ -1,5 +1,5 @@
 <div class="card dashboard">
-  <div class="card-header">
+  <div class="card-header bg-warning">
     {{ pageTitle }}
   </div>
   <div class="card-body">
@@ -22,24 +22,31 @@
             <th>Product</th>
             <th>Available</th>
             <th>Price</th>
-
+            <!--<th>Edit</th>-->
             <th>Remove</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let product of allProducts">
             <td>
-              <a class="nav-link h5" [routerLink]="['/dashboard', product._id]">
+              <a>
                 {{ product.name }}
               </a>
             </td>
             <td>{{ product.quantity }}</td>
             <td>{{ product.price | currency: "USD":"symbol":"1.2-2" }}</td>
-
+            <!--<td>
+              <button
+                class="btn btn-outline-warning"
+                [routerLink]="['/dashboard', product._id]"
+              >
+                <i class="fa fa-edit"></i>
+              </button>
+            </td>-->
             <td>
               <button
                 (click)="removeProduct(product._id)"
-                class="btn btn-danger"
+                class="btn btn-outline-danger"
               >
                 X
               </button>

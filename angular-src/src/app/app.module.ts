@@ -24,12 +24,17 @@ import { AuthGuard } from './guards/auth.guard';
 import { ProductService } from './services/product.service';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateProductModalComponent } from './components/update-product-modal/update-product-modal.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard/:id', component: ProductDescriptionComponent },
+  {
+    path: 'dashboard/:id',
+    component: UpdateProductModalComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'home/:id', component: ProductDescriptionComponent },
   {
     path: 'dashboard',
@@ -50,6 +55,11 @@ const appRoutes: Routes = [
     component: AddProductModalComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'update-product-modal',
+    component: UpdateProductModalComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -65,6 +75,7 @@ const appRoutes: Routes = [
     ProductListComponent,
     ProductDescriptionComponent,
     AddProductModalComponent,
+    UpdateProductModalComponent,
   ],
   imports: [
     BrowserModule,

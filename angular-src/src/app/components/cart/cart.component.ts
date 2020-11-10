@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
   productsInCart: any;
+  numberInCart: number = 0;
 
   constructor(
     private cartService: CartService,
@@ -22,6 +23,7 @@ export class CartComponent implements OnInit {
     this.cartService.displayCartProducts().subscribe(
       (product: any) => {
         this.productsInCart = product.products;
+        this.numberInCart = product.products.length;
       },
       (err) => {
         console.log(err);
@@ -38,6 +40,7 @@ export class CartComponent implements OnInit {
         );
         this.productsInCart = product.products;
         this.fetchData();
+        this.ngOnInit();
 
         this.flashMessage.show('Product removed', {
           cssClass: 'bg-success text-light',
