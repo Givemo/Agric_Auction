@@ -291,13 +291,15 @@ class ProductService {
                 'Content-Type': 'application/json',
             }),
         };
-        return this.http.get('api/products', httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
+        return this.http
+            .get('http://localhost:3000/api/products', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
     }
     displayProductsById(id) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .get('api/products/' + id, {
+            .get('http://localhost:3000/api/products/' + id, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -306,7 +308,7 @@ class ProductService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('api/products', product, {
+            .post('http://localhost:3000/api/products', product, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -315,7 +317,7 @@ class ProductService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .delete('api/products/' + id, {
+            .delete('http://localhost:3000/api/products/' + id, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -324,7 +326,7 @@ class ProductService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .put('api/products/' + id, {
+            .put('http://localhost:3000/api/products/' + id, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -333,7 +335,7 @@ class ProductService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('users/authenticate', user, {
+            .post('http://localhost:3000/users/authenticate', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -1725,13 +1727,15 @@ class CartService {
                 'Content-Type': 'application/json',
             }),
         };
-        return this.http.get('api/cart', httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
+        return this.http
+            .get('http://localhost:3000/api/cart', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
     }
     addToCartProducts(product) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('api/cart', product, {
+            .post('http://localhost:3000/api/cart', product, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -1740,7 +1744,7 @@ class CartService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .delete('api/cart/' + id, {
+            .delete('http://localhost:3000/api/cart/' + id, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -2039,7 +2043,7 @@ class AuthService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('users/register', user, {
+            .post('http://localhost:3000/users/register', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -2048,7 +2052,7 @@ class AuthService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('users/authenticate', user, {
+            .post('http://localhost:3000/users/authenticate', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -2061,7 +2065,9 @@ class AuthService {
                 Authorization: this.authToken,
             }),
         };
-        return this.http.get('users/profile', httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
+        return this.http
+            .get('http://localhost:3000/users/profile', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
     }
     storeUserData(token, user) {
         localStorage.setItem('id_token', token);
@@ -2308,7 +2314,7 @@ class AddProductModalComponent {
     }
 }
 AddProductModalComponent.ɵfac = function AddProductModalComponent_Factory(t) { return new (t || AddProductModalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_1__["NgbModal"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](angular2_flash_messages__WEBPACK_IMPORTED_MODULE_3__["FlashMessagesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_validate_service__WEBPACK_IMPORTED_MODULE_5__["ValidateService"])); };
-AddProductModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddProductModalComponent, selectors: [["app-add-product-modal"]], decls: 4, vars: 0, consts: [["content", ""], [1, "btn", "btn-md", "btn-outline-primary", 3, "click"], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], ["type", "button", "aria-label", "Close", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [3, "submit"], [1, "form-row"], [1, "card-body"], [1, "row"], [1, "col", "col-sm-6", "col-md-2", "mb-4"], [1, "col-8"], [1, "form-group", "row"], [1, "col", "col-sm-12", "clo-md-8"], ["placeholder", "Name", "type", "text", "onblur", "(this.type='text')", "id", "name", "name", "name", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Price", "type", "text", "onblur", "(this.type='text')", "id", "price", "name", "price", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Quantity", "type", "number", "onblur", "(this.type='text')", "id", "quantity", "name", "quantity", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Category", "type", "text", "onblur", "(this.type='text')", "id", "category", "name", "category", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Paste image link", "type", "text", "onblur", "(this.type='text')", "id", "image", "name", "image", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "col", "col-sm-6", "col-md-2"], [1, "col-10"], ["id", "name", "name", "name", "rows", "3", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-info", "ml-3"]], template: function AddProductModalComponent_Template(rf, ctx) { if (rf & 1) {
+AddProductModalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddProductModalComponent, selectors: [["app-add-product-modal"]], decls: 4, vars: 0, consts: [["content", ""], [1, "btn", "btn-md", "btn-outline-primary", 3, "click"], [1, "modal-header", "bg-warning"], ["id", "modal-basic-title", 1, "modal-title"], ["type", "button", "aria-label", "Close", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [3, "submit"], [1, "form-row"], [1, "card-body"], [1, "row"], [1, "col", "col-sm-6", "col-md-2", "mb-4"], [1, "col-8"], [1, "form-group", "row"], [1, "col", "col-sm-12", "clo-md-8"], ["placeholder", "Name", "type", "text", "onblur", "(this.type='text')", "id", "name", "name", "name", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Price", "type", "text", "onblur", "(this.type='text')", "id", "price", "name", "price", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Quantity", "type", "number", "onblur", "(this.type='text')", "id", "quantity", "name", "quantity", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Category", "type", "text", "onblur", "(this.type='text')", "id", "category", "name", "category", 1, "form-control", 3, "ngModel", "ngModelChange"], ["placeholder", "Paste image link", "type", "text", "onblur", "(this.type='text')", "id", "image", "name", "image", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "col", "col-sm-6", "col-md-2"], [1, "col-10"], ["id", "name", "name", "name", "rows", "3", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-outline-info", "ml-3"]], template: function AddProductModalComponent_Template(rf, ctx) { if (rf & 1) {
         const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, AddProductModalComponent_ng_template_0_Template, 49, 6, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "button", 1);
