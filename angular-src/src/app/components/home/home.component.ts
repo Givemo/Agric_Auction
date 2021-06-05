@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -73,5 +74,25 @@ export class HomeComponent implements OnInit {
         return false;
       }
     );
+  }
+}
+export class MetaData {
+  constructor(private metaService: Meta) {
+    this.addTag();
+  }
+
+  addTag() {
+    this.metaService.addTag({
+      name: 'Agric Auction',
+      content:
+        'Agriculural e-commerce website to upload, manage, delete and sell fruits, vegetables and grains ',
+      image:
+        'https://www.lovethispic.com/uploaded_images/337584-Woman-Holding-Pumpkin.jpg',
+    });
+    this.metaService.addTag({
+      name: 'agric auction',
+      content: 'CRUD web application',
+      image: '../../../assets/Woman-Holding-Pumpkin.jpg',
+    });
   }
 }

@@ -9,7 +9,8 @@ const mongoose = require("mongoose");
 
 // Add product to Cart
 const addProductToCart = async (req, res) => {
-  const { productId, quantity, name, price } = req.body;
+  const { productId, name, price } = req.body;
+  let { quantity } = req.body;
   const userId = "5de7ffa74fff640a0491bc4f"; //TODO: the logged in user id
   try {
     let cart = await Cart.findOne({ userId });
@@ -22,6 +23,7 @@ const addProductToCart = async (req, res) => {
         let productItem = cart.products[itemIndex];
         productItem.quantity = quantity;
         cart.products[itemIndex] = productItem;
+        console.log(cart.products[itemIndex].quantity);
       } else {
         //product does not exists in cart, add new item
         cart.products.push({ productId, quantity, name, price });
@@ -30,10 +32,10 @@ const addProductToCart = async (req, res) => {
       return res.status(201).send(cart);
     } else {
       //no cart for user, create new cart
-      const newCart = await Cart.create({
+      const newCart = await Cart.create(/*{
         userId,
         products: [{ productId, quantity, name, price }],
-      });
+      }*/);
 
       return res.status(201).send(newCart);
     }
